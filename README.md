@@ -20,7 +20,6 @@ Define an `action_item` module. In it define actions using the `Action` class.
         display_name = 'Submit AE Initial Report'
         model = 'ambition_ae.aeinitial'
         show_on_dashboard = True
-        prn_form_action = True
         instructions = 'Complete the initial report and forward to the TMG'
         priority = HIGH_PRIORITY
         next_actions = [AeFollowupAction, AeTmgAction]
@@ -33,7 +32,6 @@ Define an `action_item` module. In it define actions using the `Action` class.
         display_name = 'Submit AE Initial Report'
         model = 'ambition_ae.aeinitial'
         show_on_dashboard = True
-        prn_form_action = True
         instructions = 'Complete the initial report and forward to the TMG'
         priority = HIGH_PRIORITY
 
