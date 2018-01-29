@@ -1,0 +1,53 @@
+{% comment %}
+
+ 	Renders a single list-item for a listgroup of action items.
+ 	
+ 	The list-item has a popover to display details of the action item.
+
+ 	popover is contained in "data-content" attr
+
+ {% endcomment %}
+
+<a id="actionitem-{{action_identifier}}"
+tabindex="{{ tabindex }}"
+class="list-group-item list-group-item-{{ action_item_color }}"
+href="javascript://" data-toggle="popover" data-placement="auto bottom" data-html="true" title="Action Item" role="button"
+data-content="
+<div class='list-group'>
+<div class='list-group-item list-group-item-default'><p><small>{{ action_identifier }}</small></p>
+<span class='label label-{% if status == OPEN %}info{% else %}default{% endif %}'>{{ status }}</span>
+<span class='label label-{% if priority == HIGH_PRIORITY %}danger{% else %}warning{% endif %}'>{{ priority|title }}</span>
+<h6>{{ display_name }}</h6>
+<p class='text text-muted'>{{ action_item_reason|default:'---'|truncatechars:250 }}</p>
+{% if action_instructions %}<p class='text text-muted'><small>{{ action_instructions|truncatechars:250 }}</small></p>{% endif %}
+<p class='text text-muted'>
+	<small>Opened on {{ report_datetime|date:'SHORT_DATETIME_FORMAT' }}. {{ last_updated_text }}</small>
+</p>
+</div>
+{% if model_url %}
+<a id='referencemodel-change-{{ action_identifier }}' class='list-group-item list-group-item-{{ action_item_color }}'
+	title='click to {% if reference_model_obj %}edit{% else %}add{% endif %}'
+	href='{{ model_url }}'>
+	<span class='text text-default text-nowrap small'>{% if reference_model_obj %}<i class='fa fa-pencil fa-fw' aria-hidden='true'></i>{% else %}<i class='fa fa-plus fa-fw' aria-hidden='true'></i>{% endif %} {{ model_name }}</span>
+</a>
+{% endif %}
+
+{% if parent_model_url %}
+	<a 'parent-actionitem-change-{{ parent_action_identifier }}'
+		class='list-group-item list-group-item-default' href='{{ parent_model_url }}' title='click to edit'>
+		<span class='text text-default text-nowrap small'><i class='fa fa-pencil fa-fw' aria-hidden='true'></i> Previous {{ parent_model_name }}</span>
+	</a>
+{% endif %}
+
+<a 'actionitem-change-{{ action_identifier }}' class='list-group-item list-group-item-default' href='{{ href }}' title='click to edit'>
+	<span class='text text-default text-nowrap small'><i class='fa fa-pencil fa-fw' aria-hidden='true'></i> Action item</span>
+</a>
+</div>
+<p><a title='close' class='btn btn-sm btn-primary pull-right'><i class='fa fa-close fa-fw' aria-hidden='true'></i></a><br></p>
+
+">
+<i class="fa fa-caret-left" aria-hidden="true"></i>
+<span class="text text-{{ action_item_color }}" title="Click to see more ...">
+<small>{% if strike_thru %}<strike>{% endif %}{{ display_name }}{% if strike_thru %}</strike>{% endif %}</small>
+</span>
+</a>
