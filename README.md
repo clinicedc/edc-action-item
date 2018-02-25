@@ -12,9 +12,9 @@ Action items can be configured to drive data collection
 * for forms that do not fit well in a visit schedule; 
 * for forms that are required based on some clinical event. 
 
-Action items have are tracked. Each is allocated a unique `action_identifier` and maintain status (New, Open, Closed).
+Action items are tracked. Each is allocated a unique `action_identifier` and maintain status (New, Open, Closed).
 
-Actions can be chained. One action can create another `next` action.
+Actions can be chained. One action can create another action, group of actions or recreate itself.
 
 ### Adverse Events, Death, OffSchedule are all good candidates.
 
