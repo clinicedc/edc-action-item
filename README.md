@@ -77,6 +77,19 @@ Now create the associated model instance
     
 The `ActionItem` model instance now has a status of `Closed`.
 
+### Changing the criteria to close an action
+
+By default an action is closed once the associated model instance has been saved. For more refined behavior define `close_action_item_on_save` on the action item class
+
+
+    class AeInitialAction(Action):
+    
+    ...
+    
+    def close_action_item_on_save(self):
+        self.delete_if_new(action_cls=self)
+        return self.model_obj.report_status == CLOSED
+
 
 ### Singleton action items
 
