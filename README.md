@@ -22,11 +22,11 @@ Adverse Event reports are required based on some clinical event. Since the event
 
 See module `ambition-ae.action_items` for examples. 
 
-### Defining an action items
+### Defining action items
 
-In the root of your App, define an `action_item` module. The edc-action-item site controller will autodiscover this module and register the action item classes.
+In the root of your App, define an `action_items` module. The edc-action-item site controller will `autodiscover` this module and `register` the action item classes.
 
-To register action item classes:
+Register action item classes in the `action_items` module like this
     
     site_action_items.register(AeInitialAction)
 
