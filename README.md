@@ -49,12 +49,12 @@ In it define actions using the `Action` class.
 
 The action item is associated with its model
 
-    from edc_action_item.model_mixins import ActionItemModelMixin
+    from edc_action_item.model_mixins import ActionModelMixin
     from edc_identifier.managers import TrackingIdentifierManager
     from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
     from edc_identifier.model_mixins import TrackingIdentifierModelMixin
     
-    class AeInitial(ActionItemModelMixin, NonUniqueSubjectIdentifierFieldMixin,
+    class AeInitial(ActionModelMixin, NonUniqueSubjectIdentifierFieldMixin,
                     TrackingIdentifierModelMixin, BaseUuidModel):
 
     tracking_identifier_prefix = 'AE'
