@@ -1,6 +1,7 @@
 # edc-action-items
 
-[![Build Status](https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-action-item) [![Coverage Status](https://coveralls.io/repos/github/clinicedc/edc-action-item/badge.svg?branch=develop)](https://coveralls.io/github/clinicedc/edc-action-item?branch=develop)
+[![Build Status](https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-action-item)
+[![Coverage Status](https://coveralls.io/repos/clinicedc/edc-action-item/badge.svg?branch=develop&service=github)](https://coveralls.io/github/clinicedc/edc-action-item?branch=develop)
 
 Add subject related action items to the Edc.
 
