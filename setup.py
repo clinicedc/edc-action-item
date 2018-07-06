@@ -15,7 +15,7 @@ setup(
     author=u'Erik van Widenfelt',
     author_email='ew2789@gmail.com',
     packages=find_packages(),
-    url='http://github.com/botswana-harvard/edc-action-item',
+    url='http://github.com/clinicedc/edc-action-item',
     license='GPL licence, see LICENCE',
     description='Add subject-related action items to the Edc',
     long_description=README,
