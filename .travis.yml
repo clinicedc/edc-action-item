@@ -9,7 +9,7 @@ dist: xenial
 sudo: true
 
 services:
-- mysql
+- postgres
 
 branches:
   only:
