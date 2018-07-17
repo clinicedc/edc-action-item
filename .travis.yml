@@ -8,9 +8,13 @@ dist: xenial
 
 sudo: true
 
-services:
-- postgres
-
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+    
 branches:
   only:
   - develop
@@ -24,7 +28,7 @@ install:
 
 before_script:
 - flake8 edc_action_item
-- mysql -e 'create database edc character set utf8;'
+- psql -c 'create database edc encoding=UTF8;' -U postgres
 
 script:
 - coverage run --source=edc_action_item manage.py test
