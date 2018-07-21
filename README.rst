@@ -1,15 +1,18 @@
-# edc-action-items
+|pypi| |travis| |coverage|
 
-[![Build Status](https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-action-item)
-[![Coverage Status](https://coveralls.io/repos/clinicedc/edc-action-item/badge.svg?branch=develop&service=github)](https://coveralls.io/github/clinicedc/edc-action-item?branch=develop)
+
+edc-action-items
+----------------
 
 Add patient action items to the Edc
 
-### Overview
+Overview
+========
 
 Action items are reminders to submit a form.
 
 Action items can be configured to drive data collection
+
 * for forms that do not fit well in a visit schedule; 
 * for forms that are required based on some clinical event. 
 
@@ -17,24 +20,31 @@ Action items are tracked. Each is allocated a unique `action_identifier` and mai
 
 Actions can be chained. One action can create another action, group of actions or recreate itself.
 
-### Adverse Events, Death, OffSchedule are all good candidates.
+Adverse Events, Death, OffSchedule are all good candidates.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Adverse Event reports are required based on some clinical event. Since the event must be reported, leaving the decision to report the user is not sufficient. An action item can be opened based on the clinical event and the status of the action item tracked administratively. The action item is associtaed with the AE report. Once the report is submitted, the action item closes. If additional data is required after an initial AE report is submitted, a follow-up action can automatically be opened.
 
 See module `ambition-ae.action_items` for examples. 
 
-### Defining action items
+Defining action items
++++++++++++++++++++++
 
 In the root of your App, define an `action_items` module. The edc-action-item site controller will `autodiscover` this module and `register` the action item classes.
 
 Register action item classes in the `action_items` module like this
     
+.. code-block:: python
+
     site_action_items.register(AeInitialAction)
 
 
-### A simple action item
+A simple action item
+++++++++++++++++++++
 
 In it define actions using the `Action` class.
+
+.. code-block:: python
 
     from edc_action_item import Action, site_action_items
     from ambition_ae.action_items import AeFollowupAction, AeTmgAction
@@ -49,6 +59,8 @@ In it define actions using the `Action` class.
         priority = HIGH_PRIORITY
 
 The action item is associated with its model
+
+.. code-block:: python
 
     from edc_action_item.model_mixins import ActionModelMixin
     from edc_identifier.managers import TrackingIdentifierManager
@@ -68,20 +80,27 @@ The action item is associated with its model
     
 Somewhere in your code, instantiate the action item
 
+.. code-block:: python
+
     AeInitialAction(subject_identifier='12345')
     
 This creates an `ActionItem` model instance for this subject with a `status` of `New` (if it does not exist).
 
 Now create the associated model instance
 
+.. code-block:: python
+
     AeInitial.objects.create(subject_identifier='12345', ...)
-    
+
 The `ActionItem` model instance now has a status of `Closed`.
 
-### Changing the criteria to close an action
+Changing the criteria to close an action
+++++++++++++++++++++++++++++++++++++++++
 
 By default an action is closed once the associated model instance has been saved. For more refined behavior define `close_action_item_on_save` on the action item class
 
+
+.. code-block:: python
 
     class AeInitialAction(Action):
     
@@ -92,9 +111,12 @@ By default an action is closed once the associated model instance has been saved
         return self.model_obj.report_status == CLOSED
 
 
-### Singleton action items
+Singleton action items
+++++++++++++++++++++++
 
 To ensure an action item does not create more than one instance per subject, use the `singleton` attribute.
+
+.. code-block:: python
 
     class EnrollToSubstudyAction(Action):
         name = 'My Action'
@@ -106,9 +128,13 @@ To ensure an action item does not create more than one instance per subject, use
         create_by_user = False
         singleton=True
 
-### Action items that create a `next` action item
+
+Action items that create a `next` action item
+++++++++++++++++++++++++++++++++++++++++++++++
 
 For an action item to open another action item(s) once closed, set `next_actions`.
+
+.. code-block:: python
 
     class AeInitialAction(Action):
     
@@ -121,6 +147,8 @@ For an action item to open another action item(s) once closed, set `next_actions
         next_actions = [AeFollowupAction]
 
 If the criteria for the next action is based on some other information declare `get_next_actions` on the action item and return the list of action items needed.
+
+.. code-block:: python
 
     class AeInitialAction(Action):
 
@@ -139,3 +167,14 @@ If the criteria for the next action is based on some other information declare `
                 next_actions = [self]
         return next_actions
  
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
+    :target: https://pypi.python.org/pypi/edc-action-item
+    
+.. |travis| image:: https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop
+    :target: https://travis-ci.org/clinicedc/edc-action-item
+    
+.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-action-item/badge.svg?branch=develop
+    :target: https://coveralls.io/github/clinicedc/edc-action-item?branch=develop
+
