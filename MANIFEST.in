@@ -1,2 +1,2 @@
-include AUTHORS CHANGES README.md LICENCE VERSION
+include AUTHORS CHANGES README.rst LICENSE VERSION
 recursive-include edc_action_item/templates *

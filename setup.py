@@ -3,7 +3,7 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as f:
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as f:
     README = f.read()
 
 with open(os.path.join(os.path.dirname(__file__), 'VERSION')) as f:
@@ -19,18 +19,18 @@ setup(
     author_email='ew2789@gmail.com',
     packages=find_packages(),
     url='http://github.com/clinicedc/edc-action-item',
-    license='GPL licence, see LICENCE',
+    license='GPL license, see LICENSE',
     description='Add patient action items to clinicedc/edc projects',
     long_description=README,
     include_package_data=True,
     zip_safe=False,
     keywords='django Edc action items reminders',
-    install_requires=['django', 'edc_constants'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
