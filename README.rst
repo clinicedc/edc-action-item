@@ -63,21 +63,15 @@ The action item is associated with its model
 .. code-block:: python
 
     from edc_action_item.model_mixins import ActionModelMixin
-    from edc_identifier.managers import TrackingIdentifierManager
     from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
-    from edc_identifier.model_mixins import TrackingIdentifierModelMixin
     
     class AeInitial(ActionModelMixin, NonUniqueSubjectIdentifierFieldMixin,
-                    TrackingIdentifierModelMixin, BaseUuidModel):
-
-    tracking_identifier_prefix = 'AE'
+                    BaseUuidModel):
 
     action_cls = AeInitialAction
     
     ... # field classes
-    
-    objects = TrackingIdentifierManager()
-    
+        
 Somewhere in your code, instantiate the action item
 
 .. code-block:: python
