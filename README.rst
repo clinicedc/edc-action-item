@@ -101,7 +101,7 @@ By default an action is closed once the associated model instance has been saved
     ...
     
     def close_action_item_on_save(self):
-        self.delete_if_new(action_cls=self)
+        self.delete_children_if_new(action_cls=self)
         return self.model_obj.report_status == CLOSED
 
 
