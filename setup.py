@@ -26,6 +26,7 @@ setup(
     zip_safe=False,
     keywords='django Edc action items reminders',
     install_requires=[
+        'edc_auth',
         'edc-base',
         'edc-identifier',
         'edc_model_wrapper',
