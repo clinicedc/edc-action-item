@@ -29,7 +29,8 @@ setup(
         'edc_auth',
         'edc-base',
         'edc-identifier',
-        'edc_model_wrapper',
+        'edc-model-wrapper',
+        'edc-visit-schedule'
         'edc-prn',
     ],
     classifiers=[
