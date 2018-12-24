@@ -30,7 +30,7 @@ setup(
         'edc-base',
         'edc-identifier',
         'edc-model-wrapper',
-        'edc-visit-schedule'
+        'edc-visit-schedule',
         'edc-prn',
     ],
     classifiers=[
