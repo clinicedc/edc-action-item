@@ -1,7 +1,6 @@
 language: python
 
 python:
-- 3.6
 - 3.7
 
 dist: xenial
@@ -26,6 +25,6 @@ before_script:
 - flake8 edc_action_item
 - mysql -e 'create database edc character set utf8;'
 script:
-- coverage run --source=edc_action_item manage.py test
+- coverage run --source=edc_action_item setup.py test
 after_success:
 - coveralls
