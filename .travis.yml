@@ -17,10 +17,9 @@ branches:
   - develop
 install:
 - pip install --upgrade pip
+- pip install flake8 coveralls tox
 - pip install -e .
 - pip install -r requirements.txt
-- pip install flake8
-- pip install coveralls
 before_script:
 - flake8 edc_action_item
 - mysql -e 'create database edc character set utf8;'
