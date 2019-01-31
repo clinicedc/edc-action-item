@@ -35,7 +35,7 @@ try:
 except KeyError:
     envfile = "env.sample"
 env.read_env(os.path.join(base_dir, envfile))
-print(f"Reading env from {os.path.join(base_dir, envfile)}")
+# print(f"Reading env from {os.path.join(base_dir, envfile)}")
 
 installed_apps = [
     "django.contrib.admin",
@@ -140,6 +140,19 @@ if DEFAULT_SETTINGS.get('EMAIL_ENABLED'):
         MAILGUN_API_KEY=env("MAILGUN_API_KEY"),
         MAILGUN_API_URL=env("MAILGUN_API_URL"),
     )
+
+if os.environ.get("TRAVIS"):
+    DEFAULT_SETTINGS.update(
+        DATABASES={
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'edc',
+                'USER': 'travis',
+                'PASSWORD': '',
+                'HOST': 'localhost',
+                'PORT': '',
+            },
+        })
 
 
 def main():
