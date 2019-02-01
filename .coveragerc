@@ -5,3 +5,9 @@ omit =
     manage.py
     */migrations/*
     */mommy_*
+    venv/*
+    .tox/*
+    .eggs/
+    .settings/*
+    runtests.py
+    /home/travis/virtualenv/*
