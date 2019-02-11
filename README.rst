@@ -162,6 +162,30 @@ If the criteria for the next action is based on some other information declare `
         return next_actions
  
 
+Action items with a notification
+++++++++++++++++++++++++++++++++
+
+An action item can be associated with a notification from ``edc_notification`` so that when an action is created a notification (email or sms) is sent to those registered to receive it.
+
+A subclass of ''Action``, ``ActionWithNotification``` adds notifications to the action. The notification for the action is automatically registered when the action is registered by ``site_action_items``.
+
+For example:
+
+.. code-block:: python
+
+    class AeTmgAction(ActionWithNotification):
+        name = AE_TMG_ACTION
+        display_name = "TMG AE Report pending"
+        notification_display_name = "TMG AE Report"
+        parent_action_names = [AE_INITIAL_ACTION],
+        reference_model = "ambition_ae.aetmg"
+        related_reference_model = "ambition_ae.aeinitial"
+        related_reference_fk_attr = "ae_initial"
+        show_link_to_changelist = True
+        admin_site_name = "ambition_ae_admin"
+
+
+
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
     :target: https://pypi.python.org/pypi/edc-action-item
