@@ -1,4 +1,4 @@
-|pypi| |travis| |coverage|
+|pypi| |travis| |codecov| |downloads|
 
 
 edc-action-items
@@ -193,6 +193,9 @@ For example:
 .. |travis| image:: https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop
     :target: https://travis-ci.org/clinicedc/edc-action-item
     
-.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-action-item/badge.svg?branch=develop
-    :target: https://coveralls.io/github/clinicedc/edc-action-item?branch=develop
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-action-item/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-action-item
+
+.. |downloads| image:: https://pepy.tech/badge/edc-action-item
+   :target: https://pepy.tech/project/edc-action-item
 
