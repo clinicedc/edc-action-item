@@ -33,7 +33,6 @@ setup(
     keywords='django Edc action items reminders',
     install_requires=[
         'edc_auth',
-        'edc-base',
         'edc-identifier',
         'edc-model-wrapper',
         'edc-visit-schedule',
