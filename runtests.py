@@ -34,7 +34,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "rest_framework.authtoken",
         "simple_history",
         "edc_auth.apps.AppConfig",
-        "edc_base.apps.AppConfig",
         "edc_protocol.apps.AppConfig",
         "edc_identifier.apps.AppConfig",
         "edc_device.apps.AppConfig",

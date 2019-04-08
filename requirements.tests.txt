@@ -1,0 +1,7 @@
+edc-test-utils
+faker
+model_mommy
+django-collect-offline
+django_collect_offline_files
+edc-dashboard
+edc-subject-dashboard
