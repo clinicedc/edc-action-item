@@ -63,7 +63,7 @@ def main():
     if not settings.configured:
         settings.configure(**DEFAULT_SETTINGS)
     django.setup()
-    failures = DiscoverRunner(failfast=True).run_tests(
+    failures = DiscoverRunner(failfast=False).run_tests(
         [f'{app_name}.tests'])
     sys.exit(failures)
 
