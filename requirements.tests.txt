@@ -5,3 +5,4 @@ django-collect-offline
 django_collect_offline_files
 edc-dashboard
 edc-subject-dashboard
+edc-randomization
