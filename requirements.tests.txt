@@ -1,6 +1,6 @@
 edc-test-utils
 faker
-model_mommy
+model_bakery
 django-collect-offline
 django_collect_offline_files
 edc-dashboard
