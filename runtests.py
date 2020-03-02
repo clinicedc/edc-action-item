@@ -9,7 +9,6 @@ from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
 from os.path import abspath, dirname
 
-
 app_name = 'edc_action_item'
 base_dir = dirname(abspath(__file__))
 
@@ -47,18 +46,6 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     add_dashboard_middleware=True,
     use_test_urls=True,
 ).settings
-
-
-# if DEFAULT_SETTINGS.get('EMAIL_ENABLED'):
-#     DEFAULT_SETTINGS.update(
-#         EMAIL_HOST=env.str("DJANGO_EMAIL_HOST"),
-#         EMAIL_PORT=env.int("DJANGO_EMAIL_PORT"),
-#         EMAIL_HOST_USER=env.str("DJANGO_EMAIL_HOST_USER"),
-#         EMAIL_HOST_PASSWORD=env.str("DJANGO_EMAIL_HOST_PASSWORD"),
-#         EMAIL_USE_TLS=env("DJANGO_EMAIL_USE_TLS"),
-#         MAILGUN_API_KEY=env("MAILGUN_API_KEY"),
-#         MAILGUN_API_URL=env("MAILGUN_API_URL"),
-#     )
 
 
 def main():
