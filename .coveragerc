@@ -1,13 +1,4 @@
 [run]
-omit =
-    */wsgi.py
-    setup.py
-    manage.py
-    */migrations/*
-    */mommy_*
-    venv/*
-    .tox/*
-    .eggs/
-    .settings/*
-    runtests.py
-    /home/travis/virtualenv/*
+include = edc_action_item/*
+omit = edc_action_item/tests/*
+branch = 1

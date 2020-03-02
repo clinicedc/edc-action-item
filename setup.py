@@ -31,13 +31,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     keywords='django Edc action items reminders',
-    install_requires=[
-        'edc_auth',
-        'edc-identifier',
-        'edc-model-wrapper',
-        'edc-visit-schedule',
-        'edc-prn',
-    ],
+    install_requires=[],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
