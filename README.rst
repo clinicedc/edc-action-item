@@ -191,8 +191,8 @@ For example:
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
     :target: https://pypi.python.org/pypi/edc-action-item
     
-.. |travis| image:: https://travis-ci.org/clinicedc/edc-action-item.svg?branch=develop
-    :target: https://travis-ci.org/clinicedc/edc-action-item
+.. |travis| image:: https://travis-ci.com/clinicedc/edc-action-item.svg?branch=develop
+    :target: https://travis-ci.com/clinicedc/edc-action-item
     
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-action-item/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-action-item
