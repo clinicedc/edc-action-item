@@ -189,7 +189,7 @@ For example:
 
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
-    :target: https://pypi.python.org/pypi/edc-action-item
+  :target: https://pypi.python.org/pypi/edc-action-item
 
 .. |actions| image:: https://github.com/clinicedc/edc-action-item/workflows/build/badge.svg?branch=develop
   :target: https://github.com/clinicedc/edc-action-item/actions?query=workflow:build
@@ -198,5 +198,5 @@ For example:
   :target: https://codecov.io/gh/clinicedc/edc-action-item
 
 .. |downloads| image:: https://pepy.tech/badge/edc-action-item
-   :target: https://pepy.tech/project/edc-action-item
+  :target: https://pepy.tech/project/edc-action-item
 
