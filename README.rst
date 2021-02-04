@@ -1,4 +1,4 @@
-|pypi| |travis| |codecov| |downloads|
+|pypi| |actions| |codecov| |downloads|
 
 
 edc-action-items
@@ -13,8 +13,8 @@ Action items are reminders to submit a form.
 
 Action items can be configured to drive data collection
 
-* for forms that do not fit well in a visit schedule; 
-* for forms that are required based on some clinical event. 
+* for forms that do not fit well in a visit schedule;
+* for forms that are required based on some clinical event.
 
 Action items are tracked. Each is allocated a unique `action_identifier` and maintain status (New, Open, Closed).
 
@@ -25,7 +25,7 @@ Adverse Events, Death, OffSchedule are all good candidates.
 
 Adverse Event reports are required based on some clinical event. Since the event must be reported, leaving the decision to report the user is not sufficient. An action item can be opened based on the clinical event and the status of the action item tracked administratively. The action item is associtaed with the AE report. Once the report is submitted, the action item closes. If additional data is required after an initial AE report is submitted, a follow-up action can automatically be opened.
 
-See module `ambition-ae.action_items` for examples. 
+See module `ambition-ae.action_items` for examples.
 
 Defining action items
 +++++++++++++++++++++
@@ -33,7 +33,7 @@ Defining action items
 In the root of your App, define an `action_items` module. The edc-action-item site controller will `autodiscover` this module and `register` the action item classes.
 
 Register action item classes in the `action_items` module like this
-    
+
 .. code-block:: python
 
     site_action_items.register(AeInitialAction)
@@ -51,7 +51,7 @@ In it define actions using the `Action` class.
     from ambition_ae.action_items import AeFollowupAction, AeTmgAction
 
     class AeInitialAction(Action):
-    
+
         name = AE_INITIAL_ACTION
         display_name = 'Submit AE Initial Report'
         model = 'ambition_ae.aeinitial'
@@ -65,20 +65,20 @@ The action item is associated with its model
 
     from edc_action_item.model_mixins import ActionModelMixin
     from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
-    
+
     class AeInitial(ActionModelMixin, NonUniqueSubjectIdentifierFieldMixin,
                     BaseUuidModel):
 
     action_cls = AeInitialAction
-    
+
     ... # field classes
-        
+
 Somewhere in your code, instantiate the action item
 
 .. code-block:: python
 
     AeInitialAction(subject_identifier='12345')
-    
+
 This creates an `ActionItem` model instance for this subject with a `status` of `New` (if it does not exist).
 
 Now create the associated model instance
@@ -98,9 +98,9 @@ By default an action is closed once the associated model instance has been saved
 .. code-block:: python
 
     class AeInitialAction(Action):
-    
+
     ...
-    
+
     def close_action_item_on_save(self):
         self.delete_children_if_new(action_cls=self)
         return self.model_obj.report_status == CLOSED
@@ -132,7 +132,7 @@ For an action item to open another action item(s) once closed, set `next_actions
 .. code-block:: python
 
     class AeInitialAction(Action):
-    
+
         name = AE_INITIAL_ACTION
         display_name = 'Submit AE Initial Report'
         model = 'ambition_ae.aeinitial'
@@ -148,7 +148,7 @@ If the criteria for the next action is based on some other information declare `
     class AeInitialAction(Action):
 
     ...
-    
+
     def get_next_actions(self):
         next_actions = []
         try:
@@ -161,7 +161,7 @@ If the criteria for the next action is based on some other information declare `
                     != self.model_obj.ae_classification):
                 next_actions = [self]
         return next_actions
- 
+
 
 Action items with a notification
 ++++++++++++++++++++++++++++++++
@@ -190,10 +190,10 @@ For example:
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
     :target: https://pypi.python.org/pypi/edc-action-item
-    
-.. |travis| image:: https://travis-ci.com/clinicedc/edc-action-item.svg?branch=develop
-    :target: https://travis-ci.com/clinicedc/edc-action-item
-    
+
+.. |actions| image:: https://github.com/clinicedc/edc_action_item/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc_action_item/actions?query=workflow:build
+
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-action-item/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-action-item
 
