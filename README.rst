@@ -191,8 +191,8 @@ For example:
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-action-item.svg
     :target: https://pypi.python.org/pypi/edc-action-item
 
-.. |actions| image:: https://github.com/clinicedc/edc_action_item/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc_action_item/actions?query=workflow:build
+.. |actions| image:: https://github.com/clinicedc/edc-action-item/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-action-item/actions?query=workflow:build
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-action-item/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-action-item
