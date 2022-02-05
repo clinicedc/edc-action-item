@@ -22,6 +22,7 @@ setup(
     url="http://github.com/clinicedc/edc-action-item",
     license="GPL license, see LICENSE",
     description="Add patient action items to clinicedc/edc projects",
+    long_description_content_type="text/x-rst",
     long_description=README,
     include_package_data=True,
     zip_safe=False,
