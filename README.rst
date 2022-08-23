@@ -4,7 +4,7 @@
 edc-action-items
 ----------------
 
-Add patient action items to the Edc
+Add patient `action items` to the Edc
 
 Overview
 ========
