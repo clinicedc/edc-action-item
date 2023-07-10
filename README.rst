@@ -46,7 +46,8 @@ In it define actions using the `Action` class.
 
 .. code-block:: python
 
-    from edc_action_item import Action, site_action_items
+    from edc_action_item.action import Action
+    from edc_action_item.site_action_items import site_action_items
     from edc_constants.constants HIGH_PRIORITY
     from ambition_ae.action_items import AeFollowupAction, AeTmgAction
 
