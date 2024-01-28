@@ -12,6 +12,7 @@ project_settings = DefaultTestSettings(
     BASE_DIR=base_dir,
     APP_NAME=app_name,
     ETC_DIR=str(base_dir / app_name / "tests" / "etc"),
+    EMAIL_ENABLED=True,
     SILENCED_SYSTEM_CHECKS=[
         "edc_consent.E001",
         "sites.E101",
