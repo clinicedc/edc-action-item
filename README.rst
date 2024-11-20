@@ -200,4 +200,3 @@ For example:
 
 .. |downloads| image:: https://pepy.tech/badge/edc-action-item
   :target: https://pepy.tech/project/edc-action-item
-
