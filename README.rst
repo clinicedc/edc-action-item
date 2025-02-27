@@ -23,7 +23,7 @@ Actions can be chained. One action can create another action, group of actions o
 Adverse Events, Death, OffSchedule are all good candidates.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Adverse Event reports are required based on some clinical event. Since the event must be reported, leaving the decision to report the user is not sufficient. An action item can be opened based on the clinical event and the status of the action item tracked administratively. The action item is associtaed with the AE report. Once the report is submitted, the action item closes. If additional data is required after an initial AE report is submitted, a follow-up action can automatically be opened.
+Adverse Event reports are required based on some clinical event. Since the event must be reported, leaving the decision to report to the user is not sufficient. An action item can be opened based on the clinical event and the status of the action item tracked administratively. The action item is associtaed with the AE report. Once the report is submitted, the action item closes. If additional data is required after an initial AE report is submitted, a follow-up action can automatically be opened.
 
 See module `ambition-ae.action_items` for examples.
 
@@ -169,7 +169,7 @@ Action items with a notification
 
 An action item can be associated with a notification from ``edc_notification`` so that when an action is created a notification (email or sms) is sent to those registered to receive it.
 
-A subclass of ''Action``, ``ActionWithNotification``` adds notifications to the action. The notification for the action is automatically registered when the action is registered by ``site_action_items``.
+A subclass of ``Action``, ``ActionWithNotification`` adds notifications to the action. The notification for the action is automatically registered when the action is registered by ``site_action_items``.
 
 For example:
 
