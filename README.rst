@@ -42,17 +42,16 @@ Register action item classes in the `action_items` module like this
 A simple action item
 ++++++++++++++++++++
 
-In it define actions using the `Action` class.
+In it define actions using the ``Action`` class.
 
 .. code-block:: python
 
     from edc_action_item.action import Action
     from edc_action_item.site_action_items import site_action_items
-    from edc_constants.constants HIGH_PRIORITY
+    from edc_constants.constants import HIGH_PRIORITY
     from ambition_ae.action_items import AeFollowupAction, AeTmgAction
 
     class AeInitialAction(Action):
-
         name = AE_INITIAL_ACTION
         display_name = 'Submit AE Initial Report'
         model = 'ambition_ae.aeinitial'
@@ -67,12 +66,11 @@ The action item is associated with its model
     from edc_action_item.model_mixins import ActionModelMixin
     from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
 
-    class AeInitial(ActionModelMixin, NonUniqueSubjectIdentifierFieldMixin,
-                    BaseUuidModel):
+    class AeInitial(ActionModelMixin, NonUniqueSubjectIdentifierFieldMixin, BaseUuidModel):
+        pass
 
     action_cls = AeInitialAction
 
-    ... # field classes
 
 Somewhere in your code, instantiate the action item
 
@@ -86,7 +84,8 @@ Now create the associated model instance
 
 .. code-block:: python
 
-    AeInitial.objects.create(subject_identifier='12345', ...)
+    field_options = {}
+    AeInitial.objects.create(subject_identifier='12345', **field_options)
 
 The `ActionItem` model instance now has a status of `Closed`.
 
@@ -99,8 +98,7 @@ By default an action is closed once the associated model instance has been saved
 .. code-block:: python
 
     class AeInitialAction(Action):
-
-    ...
+        pass
 
     def close_action_item_on_save(self):
         self.delete_children_if_new(action_cls=self)
@@ -147,8 +145,7 @@ If the criteria for the next action is based on some other information declare `
 .. code-block:: python
 
     class AeInitialAction(Action):
-
-    ...
+        pass
 
     def get_next_actions(self):
         next_actions = []
