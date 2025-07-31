@@ -3,4 +3,4 @@
 from edc_test_settings.func_main import func_main2
 
 if __name__ == "__main__":
-    func_main2("edc_action_item.tests.test_settings", "edc_action_item.tests")
+    func_main2("tests.test_settings", "edc_action_item.tests")
